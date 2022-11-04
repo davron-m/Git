@@ -72,6 +72,42 @@ newArray = mArray.map((el) =>{
 
 console.log(newArray)
 
+// Деструктуризация обьектов
+
+const userProfile = {
+    name: 'Davron',
+    age: 27,
+}
+
+const {name, age} = userProfile // New variable 'name' 
+console.log(name)
+
+// Деструктуризация массивов
+
+const fruits = ['apple', 'kiwi', 'banana']
+
+const [apple] = fruits
+console.log(apple)
+// Деструктуризация функции
+
+const profileAddres = {
+    name: 'Eduard',
+    continent: 'Europe',
+    country: 'Italy',
+    city: 'Rome',
+}
+
+const regs = ({name, continent, country, city}) => {
+    if (!continent) {
+       return `${name} You not European` 
+    }
+    return `${name} You live in Europe`
+}
+
+console.log(regs(profileAddres))
+
+
+
 
 
 
