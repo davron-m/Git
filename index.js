@@ -106,6 +106,78 @@ const regs = ({name, continent, country, city}) => {
 
 console.log(regs(profileAddres))
 
+// Условные конструкции   IF  ELSE IF ELSE
+
+// Вариант 1 
+
+const age1 = 6
+
+if (age1 < 18) {
+    console.log("You can't enter")
+} else if (age1 >= 18 ) {
+    console.log('The ticket cost 5 euro')
+} else {
+
+}
+
+//Вариант 2
+
+if (age1 >= 18) {
+    console.log('The ticket cost 5 euro') 
+}
+
+if (age1 < 18 && age1 > 7) {
+    console.log("You can't enter") 
+}
+
+if (age1 < 7) {
+    console.log('Where is your mother')
+}
+
+//Исползования IF функциях
+
+const sumPositiveNumbers = (a, b) => {
+    if (typeof a !== 'number' || typeof b !== 'number') {
+        return 'One of the arguments is not number'
+    }
+
+    if (a <= 0 || b <= 0){
+        return 'Number are not positive'
+    }
+
+    return a + b
+}
+
+console.log(sumPositiveNumbers(11, 33))
+
+//Инструкция SWICH
+
+const month = 2
+
+switch (month){
+    case 6:
+      console.log('June')
+      break
+    case 7:
+      console.log('July')
+      break
+    case 8:
+      console.log('August')
+      break
+    default:
+        console.log('It is not summer month')
+}
+
+//Тернарный оператор >>> Условыя ? выражения 1 : выражения 2
+
+let value = 80
+
+console.log(value > 0 ? value : -value)
+
+value = -3
+const res = (value > 0 ? value : -value)
+
+console.log(res)
 
 
 
