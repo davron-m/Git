@@ -1,6 +1,6 @@
 // Функции по умолчанию
 
-const newPost = (post, addedAt = Date()) => ({
+const newPost = (post, addedAt = Date()) => ({   
     ...post,
     addedAt,
 })
@@ -11,6 +11,11 @@ const firstPost = {
 }
 
 console.log(newPost(firstPost))
+/*{
+    id: 1,
+    author: 'Davron',
+    addedAt: 'Mon Nov 07 2022 19:54:58 GMT+0300 (Москва, стандартное время)'
+  } */
 
 // Array vs Object
 
@@ -22,7 +27,7 @@ const myObject = {
     2: 3,
 }
 
-console.log(myObject)
+console.log(myObject)    //{ '0': 1, '1': 2, '2': 3 }
 
 //Array
 // Чтения значения массива
@@ -179,7 +184,51 @@ const res = (value > 0 ? value : -value)
 
 console.log(res)
 
+// Циклы FOR    WHILE     DO WHILE    FOR...IN...  FOR...OF...
+//FOR
 
+for (let i = 0; i < 6; i++){
+    console.log(i)
+}
 
+//WHILE бесконечно повторяеться если условия правдива
+
+let a = 11
+
+while(a < 3){
+    console.log(a)
+    a++
+}
+
+// DO WHILE если условия не верна выполняеться один раз
+do {
+    console.log(a)
+    a++
+} while (a < 5)
+
+// FOR IN 
+
+const myObject1 = {
+    x: 10,
+    y: 23,
+    z: 7,
+}
+
+for (const key in myObject1) {
+    console.log(key, myObject1[key])
+}
+
+Object.keys(myObject1).forEach(key => {  // FOREACH ДЛЯ МАССИВОВ, можно исползовать VALUE для зачения вместо KEYS
+    console.log(key, myObject[key])
+})
+//FOR OF 
+
+const myString = 'California'
+
+for (const el of myString) {
+    console.log(el)
+}
+
+// МОДУЛЫ  ЭКСПОРТИРУЕТЬСЯ export default  import
 
 
