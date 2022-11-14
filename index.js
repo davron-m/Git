@@ -1,3 +1,57 @@
+// consol - Objekt .log - method 
+//consol.dir() Отображаеть все свойства обектьа
+//consol.table() Отображаеть все свойства обектьа ТАБЛИЧНОМ ВИДЕ
+
+// Переменные дают возможност повторного доступа к значениям
+
+// Имена переменных
+
+/* PascalCase     ТИПЫ И КЛАССЫ
+
+  DB_PASSWORD     ИЗВЕСТЬНО ДО ЗАПУСКА ПРИЛОЖЕНИЯ И НЕ МЕНЯЕТЬСЯ 
+
+  camelCase       остальных случаях
+
+  Обявления переменных        LET    CONST   VAR
+
+
+     ТИПЫ ПЕРЕМЕННЫХ  ПРИМИТИВНИЕ                                 ССИЛОЧНЫЙ ТИП   
+    
+     STRING    NUMBER      BOOLEAN    UNDEFINED  NULL  SYMBOL                 OBJECT
+
+
+*/
+// ОБЕКТЬЫ
+
+const objectA = {
+    a: 10,
+    b: 65
+}
+
+const copyOfA = objectA   // копирования обектьа
+
+copyOfA.c = 70          //добавить значения для обектьа
+console.log(objectA)
+
+const myCar = {
+    model: 'BMW',
+    year: 2015
+}
+
+myCar.color = 'black' //добавить значения для обектьа
+
+delete myCar.year   //удалить значения для обектьа DELETE
+
+const name1 = 'Davron'
+const age2 =  27
+
+const prof = {      //Исползования переменных в обектье 
+    name: name1,
+    age: age2
+}
+
+
+
 // Функции по умолчанию
 
 const newPost = (post, addedAt = Date()) => ({   
@@ -231,4 +285,155 @@ for (const el of myString) {
 
 // МОДУЛЫ  ЭКСПОРТИРУЕТЬСЯ export default  import
 
+//Классы 
 
+class Comment {
+    constructor(text){
+        this.text = text
+        this.votesQty = 0
+    }
+    upvote() {
+        this.votesQty += 1
+    }
+}
+
+const firstComment = new Comment('First comment')
+
+//Промисы
+
+const myPromise = new Promise((resolve, reject) => {
+    /* 
+    *выполнения асинхронных действый
+    *
+    * Внутры этой функции нужно в резултате вызвать одну изфункций resolve или reject
+    */
+})
+
+myPromise
+    .then(value => {
+        /*
+        *Действия в случе успешного выполнения Промиса
+        * Значения value - это значения б переданное 
+        в вызове функции resolve внутри Промиса
+        */
+    })
+    .catch(error => {
+        /*
+        *Действия в случае отклонения Промиса
+         * Значения error - это значения б переданное 
+        в вызове функции reject внутри Промиса
+        */
+    })
+
+    fetch('https://jsonplaceholder.typicode.com/todos//11')
+      .then(response => {
+        console.log(response)
+        return response.json()
+      })
+      .then(json => console.log(json))
+      .catch(error => console.log(error))
+
+      /* fetch('https://jsonplaceholder.typicode.com/todos')
+      .then(response => {
+        console.log(response)
+        return response.json()
+      })
+Promise {<pending>}
+[[Prototype]]
+: 
+Promise
+catch
+: 
+ƒ catch()
+constructor
+: 
+ƒ Promise()
+finally
+: 
+ƒ finally()
+then
+: 
+ƒ then()
+Symbol(Symbol.toStringTag)
+: 
+"Promise"
+[[Prototype]]
+: 
+Object
+[[PromiseState]]
+: 
+"fulfilled"
+[[PromiseResult]]
+: 
+Array(200)
+VM72:3 
+Response {type: 'basic', url: 'https://jsonplaceholder.typicode.com/todos', redirected: false, status: 200, ok: true, …}
+body
+: 
+ReadableStream
+bodyUsed
+: 
+true
+headers
+: 
+Headers {}
+ok
+: 
+true
+redirected
+: 
+false
+status
+: 
+200
+statusText
+: 
+""
+type
+: 
+"basic"
+url
+: 
+"https://jsonplaceholder.typicode.com/todos"
+[[Prototype]]
+: 
+Response */
+
+const getData = (url) => 
+  new Promise((resolve, reject) =>
+    fetch(url)
+      .then(response => response.json())
+      .then(json => resolve(json))
+      .catch(error=> reject(error))
+  )
+
+  getData('https://jsonplaceholder.typicode.com/todos/3')
+    .then(data => console.log(data))
+    .catch(error => console.log(error.message))
+
+    // Асинхронная функция ASYNC AWAIT
+
+    /*const asyncFn = async () => {
+        return 'The End'
+    }
+
+    asyncFn()
+      .then(value => console.log(value))
+      .then(error => console.log(error)) */
+
+    // Ожидания резултата AWAIT
+
+    const timerPromise = () => 
+        new Promise((resolve, reject) =>
+        setTimeout(() => resolve(), 2000))
+        
+        const asyncFn = async () => {
+            console.log('Timer starts')
+            const startTime = performance.now()
+            await timerPromise()
+            const endTime = performance.now()
+            console.log('Timer ended', endTime - startTime)
+        }
+
+        /*  Promise {<pending>}[[Prototype]]: Promise[[PromiseState]]: "fulfilled"[[PromiseResult]]: undefined
+VM96:10 Timer ended 2851.7999999998137  */
