@@ -21,7 +21,51 @@
 
 
 */
-// ОБЕКТЬЫ
+
+//   Методы - это свойства обьекта который содержить функция
+
+const myCity = {
+    city: 'New York',
+    cityGreeting: function() {
+        console.log('Greetings')
+    }
+}      // myCity.cityGreeting()
+
+// JSON JavaScrip Object Notation        ФОРМАТЬ ОБМЕНЬ ДАННИМЫ
+
+// Конвертатсия JSON В обекть       JSON.parse()  КОНВЕРТАТЬСИЯ обекть в  JSON.stringify()  
+
+
+// ОБЕКТЬЫ  ссилочный типь 
+
+// Мутирования копии обьекта 
+
+const  person = {
+    ism: 'Rob',
+    yosh: 21
+}
+const person2 = person
+
+person2.yosh = 30 
+console.log(person.yosh)  //Здесь измениться person
+
+// Избежать мутатсия обьекта
+
+
+
+const person3 = Object.assign({}, person)  //Варианть 1
+
+person3.yosh = 23 //Здес не измениться person 
+
+
+
+
+const person4 = {...person} //Вариант 2
+
+person4.yosh = 45
+
+
+
 
 const objectA = {
     a: 10,
@@ -50,7 +94,43 @@ const prof = {      //Исползования переменных в обек�
     age: age2
 }
 
+//Функции --   это блок кода который можно использовать много раз 
 
+/* типы функции  Именованной     Присвоена переменной   Анонимный 
+
+Аргументом при вызове другой функции      Значения свойства обьекта  */
+
+const func = function fun(a, b) {
+    let c
+    a = a + 1
+    c = a + b
+         return c
+}
+
+console.log(func(11, 3))
+
+//Передача значения по ссильке
+
+const pers = {
+    n: 'Bob',
+    a: 21
+}
+
+function p(per) {
+    per.a += 1
+     return per
+}
+
+p(pers)
+console.log(pers.a)
+
+//Callback function
+
+function myName() {
+    console.log('Davron')
+}
+
+setTimeout(myName, 10000)  //функция внутри функции
 
 // Функции по умолчанию
 
@@ -325,13 +405,13 @@ myPromise
         */
     })
 
-    fetch('https://jsonplaceholder.typicode.com/todos//11')
+    /*fetch('https://jsonplaceholder.typicode.com/todos//11')
       .then(response => {
         console.log(response)
         return response.json()
       })
       .then(json => console.log(json))
-      .catch(error => console.log(error))
+      .catch(error => console.log(error))   */
 
       /* fetch('https://jsonplaceholder.typicode.com/todos')
       .then(response => {
