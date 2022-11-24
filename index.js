@@ -132,7 +132,85 @@ function myName() {
 
 setTimeout(myName, 10000)  //функция внутри функции
 
-// Функции по умолчанию
+//Строгий режим 'use strict' Запрешаеть использовать не обявленных переменних
+
+'use strict'
+
+function myF() {
+    c = true
+    console.log(c)
+}
+
+myF()
+
+//Операторы 
+
+//Арифметическые * + - /  сравнения === !== <= >= Логические !  &&  ||  Сравнения = 
+//Текстовые  typeof  instanceof  new   delete
+
+
+//Унарные операторы      всегда один операнд   a++  +a  delete  typeof a
+
+
+//Бинарние операторы     два операнда          a = 3    a && b  s === o  
+
+
+//Инфиксная запись  между операндами d = y    f || s Префиксная ++a   delete a    typeof s  Постфиксная a++  myFunction()
+
+
+
+//ЛОЖНЫЕ ЗНАЧЕНИЯ   javascript       false   0   ''   undefined   null
+
+
+//Оператор ... разделения обьекта на свойства 
+
+const button = {
+    width: 200,
+    text: 'buy'
+}
+
+const redButton = {
+    ...button,
+    color: 'red'
+}
+
+console.table(redButton)
+/*
+┌─────────┬────────┐
+│ (index) │ Values │
+├─────────┼────────┤
+│  width  │  200   │
+│  text   │ 'buy'  │
+│  color  │ 'red'  │
+└─────────┴────────┘ */
+
+//Конкатенация строк  + 
+
+const hello = 'hello'
+const world = 'world'
+
+const greet = `${hello} ${world}`
+console.log(greet)
+
+// Функциональные выражения  не имеить имя 
+
+setTimeout(function() {     // нет имя функция 
+    console.log('Выпольнено')
+}, 3000)
+
+//Стрелочная функция 
+
+const strel = (l, n) => {
+    let f
+    l = l + 1
+    f = n + l
+    return f
+}
+
+console.log(strel(11, 23))
+
+
+//  Зачения параметров Функции по умолчанию
 
 const newPost = (post, addedAt = Date()) => ({   
     ...post,
